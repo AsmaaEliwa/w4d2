@@ -4,6 +4,6 @@ require_relative "board"
 
 class Knight<Piece
     def initialize
-        @symbol="♞"
+        @symbol= "♞"
     end
 end
