@@ -5,10 +5,10 @@ class Pawn < Piece
 
     attr_reader :symbol
 
-    def initialize
+    def symbol    
         @symbol = "♙"
-        @moves = []
     end
+        # @moves = []
 
     def at_start_row?
         row, col = pos

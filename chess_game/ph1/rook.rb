@@ -6,8 +6,8 @@ class Rook<Piece
     include Slideable
     attr_reader "symbol"
 
-    def initialize
-        @symbol="♖"
+    def symbol
+        @symbol = "♖"
     end
 
     protected

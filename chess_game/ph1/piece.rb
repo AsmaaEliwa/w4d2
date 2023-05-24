@@ -17,11 +17,11 @@ class Piece
     #         false
     #     end
         
-    # end
+    # # end
 
-    def pos=(val)
-        @pos = value
-    end
+    # def pos=(val)
+    #     @pos = value
+    # end
 
     def move_into_check?(end_pos)
         
@@ -31,4 +31,5 @@ class Piece
     def inspect
         "#{self.symbol}"
     end
+
 end

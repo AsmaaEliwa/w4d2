@@ -13,30 +13,28 @@ class Board
     def add_pieces
         i = 0
             while i < 8
-                @board[1][i] = Pawn.new
-                @board[6][i] = Pawn.new
+                @board[1][i] = Pawn.new("white", @board, [1, i])
+                @board[6][i] = Pawn.new("black", @board, [6, i])
                 i+=1
             end   
-            @board[0][0]=Rook.new
-            @board[0][7]=Rook.new
-            @board[7][0]=Rook.new
-            @board[7][7]=Rook.new
+            
+            @board[0][0]=Rook.new("white", @board, [0,0])
+            @board[0][7]=Rook.new("white", @board, [0,7])
+            @board[0][4]=King.new("white", @board, [0,4])
+            @board[0][3]=Queen.new("white", @board, [0,3])
+            @board[0][1]=Knight.new("white", @board, [0,1])
+            @board[0][6]=Knight.new("white", @board, [0,6])
+            @board[0][2]=Bishop.new("white", @board, [0,2])
+            @board[0][5]=Bishop.new("white", @board, [0,5])
 
-            @board[0][4]=King.new
-            @board[7][4]=King.new
-
-            @board[0][3]=Queen.new
-            @board[7][3]=Queen.new
-
-            @board[0][1]=Knight.new
-            @board[7][1]=Knight.new
-            @board[0][6]=Knight.new
-            @board[7][6]=Knight.new
-
-            @board[0][2]=Bishop.new
-            @board[0][5]=Bishop.new
-            @board[7][2]=Bishop.new
-            @board[7][5]=Bishop.new
+            @board[7][0]=Rook.new("black", @board, [7,0])
+            @board[7][7]=Rook.new("black", @board, [7,7])
+            @board[7][4]=King.new("black", @board, [7,4])
+            @board[7][3]=Queen.new("black", @board, [7,3])
+            @board[7][1]=Knight.new("black", @board, [7,1])
+            @board[7][6]=Knight.new("black", @board, [7,6])
+            @board[7][2]=Bishop.new("black", @board, [7,2])
+            @board[7][5]=Bishop.new("black", @board, [7,5])
 
     end
 

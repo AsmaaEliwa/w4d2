@@ -7,7 +7,7 @@ class King<Piece
     attr_reader "symbol"
     
     
-    def initialize
+    def symbol
         @symbol="♔"
     end
 

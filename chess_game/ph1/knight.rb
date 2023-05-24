@@ -6,7 +6,8 @@ require_relative 'stepable'
 class Knight<Piece
     include Stepable
     attr_reader "symbol"
-    def initialize
+   
+    def symbol
         @symbol= "♞"
     end
 

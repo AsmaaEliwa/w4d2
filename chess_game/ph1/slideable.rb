@@ -1,6 +1,6 @@
 require_relative "board"
 # require_relative "queen"
-
+require "byebug"
 module Slideable
 
     # HORIZONTAL_DIRS stores an array of horizontal directions
@@ -69,12 +69,13 @@ module Slideable
         
       # create an array to collect moves
       unblocked_moves = []
-        cur_pos = dx, dy
+        row, col = self.pos
             
-            new_pos = [dx+dx, dy+dy]
-            print new_pos
-            if board.valid_pos?(new_pos)
-                if board[dx+dx][dy+dy] == null_piece || board[dx+dx][dy+dy].color != board[dx][dy].color
+            row_idx = row + dx 
+            col_idx = col + dy
+            new_pos = [row_idx, col_idx]
+            if valid_pos?(new_pos)
+                if board[row_idx][col_idx] == null_piece || board[row_idx][col_idx].color != self.color
                     all_moves << new_pos
                 end
             end
@@ -85,4 +86,4 @@ module Slideable
     
     end
 end
-  
+

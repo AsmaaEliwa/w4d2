@@ -7,7 +7,7 @@ class Queen<Piece
     attr_reader "symbol"
   
     def symbol
-        "♕"
+        @symbol = "♕"
     end
 
     # protected

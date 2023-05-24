@@ -6,7 +6,7 @@ class Bishop<Piece
     include Slideable
     attr_reader "symbol"
 
-    def initialize
+    def symbol
         @symbol="♗"
     end
 

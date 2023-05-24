@@ -9,7 +9,6 @@ class NullPiece < Piece
     
     def initialize
         @symbol =''
-
     end
 
 end
