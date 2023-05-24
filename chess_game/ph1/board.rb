@@ -1,18 +1,36 @@
+require_relative "pawn"
+require_relative "null_piece"
+
+
 class Board
     def initialize
-        @board = Array.new(8) {Array.new(8, nil)}
-        @null_piece = null_piece
+        @null_piece = NullPiece.instance
+        @board = Array.new(8) {Array.new(8, @null_piece)}
+        add_pieces 
+        
+     
+
     end
 
-    attr_reader "board","null_piece"
+    attr_reader "board", "null_piece", "add_pieces"
     
+    def add_pieces
+        i = 0
+            while i < 8
+                @board[1][i] = Pawn.new.symbol
+                @board[6][i] = Pawn.new.symbol
+                i+=1
+            end       
+    end
+
+
     def [](pos)
-     row,col=pos
+     row, col = pos
      @board[row][col]
     end
     
     def []=(pos,value)
-        row,col = pos
+        row, col = pos
      @board[row][col] = value
     end
     
@@ -20,7 +38,7 @@ class Board
         if self[start_pos] == nil
             raise "there is no piece"
         end
-        self[start_pos] = @nullpice
+        self[start_pos] = @nullpiece
          self[end_pos] = color
     end
     
