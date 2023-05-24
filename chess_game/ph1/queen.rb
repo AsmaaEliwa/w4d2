@@ -5,11 +5,12 @@ require_relative 'slideable'
 class Queen<Piece
     include Slideable
     attr_reader "symbol"
-    def initialize
-        @symbol="♕"
+  
+    def symbol
+        "♕"
     end
 
-    protected
+    # protected
     
     def move_dirs
         # return the directions in which a queen can move
