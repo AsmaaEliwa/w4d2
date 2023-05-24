@@ -27,4 +27,8 @@ class Piece
         
     end
 
+
+    def inspect
+        "#{self.symbol}"
+    end
 end

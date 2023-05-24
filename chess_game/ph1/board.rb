@@ -6,8 +6,6 @@ class Board
         @board = Array.new(8) {Array.new(8, @null_piece)}
         add_pieces 
         
-     
-
     end
 
     attr_reader "board", "null_piece", "add_pieces"
@@ -15,16 +13,30 @@ class Board
     def add_pieces
         i = 0
             while i < 8
-                @board[1][i] = Pawn.new.symbol
-                @board[6][i] = Pawn.new.symbol
+                @board[1][i] = Pawn.new
+                @board[6][i] = Pawn.new
                 i+=1
             end   
-            @board[0][0]=Rook.new.symbol
-            @board[0][7]=Rook.new.symbol
-            @board[7][0]=Rook.new.symbol
-            @board[7][7]=Rook.new.symbol
+            @board[0][0]=Rook.new
+            @board[0][7]=Rook.new
+            @board[7][0]=Rook.new
+            @board[7][7]=Rook.new
 
+            @board[0][4]=King.new
+            @board[7][4]=King.new
 
+            @board[0][3]=Queen.new
+            @board[7][3]=Queen.new
+
+            @board[0][1]=Knight.new
+            @board[7][1]=Knight.new
+            @board[0][6]=Knight.new
+            @board[7][6]=Knight.new
+
+            @board[0][2]=Bishop.new
+            @board[0][5]=Bishop.new
+            @board[7][2]=Bishop.new
+            @board[7][5]=Bishop.new
 
     end
 
@@ -40,11 +52,11 @@ class Board
     end
     
     def move_piece(color,start_pos,end_pos)
-        if self[start_pos] == nil
+        if self[start_pos] == @null_piece
             raise "there is no piece"
         end
-        self[start_pos] = @nullpiece
-         self[end_pos] = color
+         self[end_pos] = self[start_pos]
+         self[start_pos] = null_piece
     end
     
     def valid_pos?(pos)
@@ -56,6 +68,7 @@ class Board
             return false
         end
     end
+    
 
 
 
