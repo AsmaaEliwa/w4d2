@@ -15,6 +15,8 @@ class Rook<Piece
     def move_dirs
         # return the directions in which a rook can move
         # a rook can move horizontally (across rows and columns)
+        diagonal_dirs
+
     end
 
 end

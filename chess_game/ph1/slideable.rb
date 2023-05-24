@@ -41,12 +41,10 @@ module Slideable
         all_moves = []
         move_dirs.each do |pos|
             row, col = pos
-            if grow_unblocked_moves_in_dir(row, col)
-                all_moves << [row, col]
+                grow_unblocked_moves_in_dir(row, col)
             end
         end
         all_moves
-    
       # iterate over each of the directions in which a slideable piece can move
         # use the Piece subclass' `#move_dirs` method to get this info
         # for each direction, collect all possible moves in that direction
@@ -69,10 +67,18 @@ module Slideable
     # the given direction is represented by two args, the combination of a dx and dy
     def grow_unblocked_moves_in_dir(dx, dy)
       # create an array to collect moves
-      all_moves = []
+      unblocked_moves = []
         pos = dx, dy
-        until !valid_pos?(pos)
-            pos =
+        move_dirs.each do |pos|
+            row, col = pos
+            new_pos = row + dx, col + dy
+            until !valid_pos?(new_pos)
+                if @board[row+dx][col+dy] == @null_piece || @board[row+dx][col+dy].color != @board[dx][dy].color
+                    all_moves << new_pos
+                end
+            end
+        end
+        unblocked_moves
 
   
       # get the piece's current row and current column
@@ -81,7 +87,8 @@ module Slideable
         # continually increment the piece's current row and current column to generate a new position
         # stop looping if the new position is invalid (not on the board); the piece can't move in this direction
         # if the new position is empty, the piece can move here, so add the new position to the moves array
-        # if the new position is occupied with a piece of the opposite color, the piece can move here (to capture the opposing piece), so add the new position to the moves array
+        # if the new position is occupied with a piece of the opposite color, the piece can move here 
+        #(to capture the opposing piece), so add the new position to the moves array
           # but, the piece cannot continue to move past this piece, so stop looping
         # if the new position is occupied with a piece of the same color, stop looping
   
