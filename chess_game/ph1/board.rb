@@ -36,6 +36,8 @@ class Board
             @board[7][2]=Bishop.new("black", @board, [7,2])
             @board[7][5]=Bishop.new("black", @board, [7,5])
 
+        
+
     end
 
 
