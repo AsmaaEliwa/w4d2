@@ -8,7 +8,6 @@ class Pawn < Piece
     def initialize
         @symbol = "♙"
         @moves = []
-        # super(symbol)
     end
 
     def at_start_row?
